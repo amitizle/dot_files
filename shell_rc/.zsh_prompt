@@ -1,0 +1,13 @@
+NEWLINE=$'\n'
+CHECKMARK=$'\U2714'
+MULTIPLICATION=$'\U2716'
+
+export ZSH_THEME_GIT_PROMPT_PREFIX="["
+export ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+export ZSH_THEME_GIT_PROMPT_DIRTY="%F{red} ${MULTIPLICATION}%F{blue}"
+export ZSH_THEME_GIT_PROMPT_CLEAN="%F{green} ${CHECKMARK}%F{blue}"
+prompt_branch() {
+  echo -n '$(git_prompt_info)'
+}
+
+prompt="%F{cyan}[%*] %n%F{yellow}@%F{cyan}%m%F{yellow} %Bin%b %F{blue}%~ %(?,%F{green}${CHECKMARK},%F{red}${MULTIPLICATION}) [%?]${NEWLINE}%F{blue}$(prompt_branch)%F{reset_color}\$ "

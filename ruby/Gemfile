@@ -1,0 +1,7 @@
+
+source 'https://rubygems.org'
+
+gem 'wirble',  '~>0.1'
+gem 'awesome_print',  '~>1.7'
+gem 'interactive_editor',  '~>0.0'
+

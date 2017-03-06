@@ -1,0 +1,15 @@
+{
+  "NerdTree" : "https://github.com/scrooloose/nerdtree.git",
+  "tcomment" : "https://github.com/tomtom/tcomment_vim.git",
+  "tender.vim" : "https://github.com/jacoborus/tender.vim.git",
+  "vim-colors-solarized" : "git://github.com/altercation/vim-colors-solarized.git",
+  "vim-elixir" : "https://github.com/elixir-lang/vim-elixir.git",
+  "erlang-omnicomplete" : "https://github.com/vim-erlang/vim-erlang-omnicomplete.git",
+  "erlang-skeletons" : "https://github.com/vim-erlang/vim-erlang-skeletons.git",
+  "vim-fugutive" : "https://github.com/tpope/vim-fugitive.git",
+  "vim-lfe" : "https://github.com/lfe/vim-lfe.git",
+  "vim-ruby" : "https://github.com/vim-ruby/vim-ruby.git",
+  "vim-simple-todo" : "https://github.com/vitalk/vim-simple-todo",
+  "vim-slime" : "git://github.com/jpalardy/vim-slime.git",
+  "vim-surround" : "https://github.com/tpope/vim-surround.git"
+}
