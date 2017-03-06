@@ -1,6 +1,6 @@
 execute pathogen#infect()
 
-set shell=/bin/bash
+set shell=/usr/local/bin/zsh
 
 set history=700
 set ruler
