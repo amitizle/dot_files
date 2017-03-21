@@ -1,4 +1,19 @@
-execute pathogen#infect()
+" execute pathogen#infect()
+call plug#begin()
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tomtom/tcomment_vim'
+Plug 'jacoborus/tender.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir'}
+Plug 'vim-erlang/vim-erlang-omnicomplete', { 'for' : 'erlang'}
+Plug 'vim-erlang/vim-erlang-skeletons', { 'for' : 'erlang'}
+Plug 'tpope/vim-fugitive'
+Plug 'lfe/vim-lfe'
+Plug 'vim-ruby/vim-ruby', { 'for' : 'ruby'}
+Plug 'vitalk/vim-simple-todo'
+Plug 'tpope/vim-surround'
+Plug 'tmhedberg/matchit'
+call plug#end()
 
 set shell=/usr/local/bin/zsh
 
