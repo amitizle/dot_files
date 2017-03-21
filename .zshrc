@@ -1,21 +1,11 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/amit.goldberg/.oh-my-zsh
-
-
 CASE_SENSITIVE="true"
 DISABLE_AUTO_TITLE=true
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions osx)
 autoload -Uz compinit promptinit colors
-compinit
+compinit -C
+zmodload -i zsh/complist
 promptinit
 colors
-
-source $ZSH/oh-my-zsh.sh
 
 ###########
 # Aliases #
@@ -25,10 +15,12 @@ alias shrug='echo -n "¯\_(ツ)_/¯" | pbcopy'
 alias sqlite='sqlite3 -column -header'
 alias vim='vim -p'
 alias vi='vim -p'
+alias nvim='nvim -p'
 alias diff='colordiff'
 alias screen='TERM=xterm-256color screen'
 alias bc='bc -l'
-alias c='xclip -selection clipboard'
+# alias c='xclip -selection clipboard'
+alias c='xargs echo -n | pbcopy'
 alias l='ls -lthFAr'
 alias mkdir='mkdir -pv'
 alias ll='ls -alF'
@@ -45,7 +37,7 @@ alias docker-cleanup-containers='docker stop $(docker ps -q); docker rm -f $(doc
 alias docker-ps='docker ps -a --format "{{.Names}} ({{.Image}}): {{.Status}} (Running for {{.RunningFor}}, Created At: {{.CreatedAt}})"'
 alias docker-run-command='docker inspect  --format "{{.Name}} {{.Config.Cmd}}" $(docker ps -a -q)'
 alias docker-stop-all='docker stop $(docker ps -q)'
-alias docker-ips='docker inspect -f "{{.Name}} - {{.NetworkSettings.IPAddress }}" $(docker ps -aq)'
+alias docker-ips='docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $(docker ps -aq)'
 
 
 ###########
@@ -145,8 +137,10 @@ function wttr()
 # ZSH Config #
 ##############
 
-# Prompt
-source ~/.zsh_prompt
+# Addons
+export GIT_PROMPT_EXECUTABLE="haskell"
+source $HOME/.zsh_addons/zsh-git-prompt/zshrc.sh
+source $HOME/.zsh_addons/zsh_prompt
 
 # ZSH key binding
 bindkey '^P' history-search-backward
@@ -159,6 +153,11 @@ zstyle ':completion:*' path-completion false
 # Stop the damn ls rep<Tab> --> ls Pictures completion
 zstyle ':completion:*' completer _expand _complete
 zstyle ':completion:*' matcher-list ''
+# General zstyle things
+zstyle ':completion::complete:*' use-cache on # completion caching, use rehash to clear
+zstyle ':completion:*' cache-path ~/.zsh_addons/cache
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 #################
 # Erlang/Elixir #
@@ -174,15 +173,18 @@ function iex_version(){
 }
 
 erl_version "18.3"
-iex_version "1.3.4"
+iex_version "1.4.2"
 alias erl_observer='erl -sname observer -run observer -detached'
 
 ########
 # Ruby #
 ########
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+use_ruby(){
+  eval "$(rbenv init -)"
+}
 
 ##############
 # Start tmux #
 ##############
-[[ -z "$TMUX" ]] && tmux
+[[ -z "$TMUX" ]] && exec tmux
