@@ -1,9 +1,6 @@
 
 export CLICOLOR=1
 export LESS=' -R '
-export EDITOR='vim'
-export USE_EDITOR=$EDITOR
-export VISUAL=$EDITOR
 
 # Golang
 export GOPATH=$HOME/golang
