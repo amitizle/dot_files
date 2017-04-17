@@ -81,6 +81,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" autocmd FileType erlang setlocal shiftwidth=2 tabstop=2
 autocmd FileType erlang setlocal shiftwidth=4 tabstop=4
 au BufRead,BufNewFile *.wiki setfiletype dokuwiki
 au BufRead,BufNewFile *.config.script setfiletype erlang
@@ -90,6 +91,11 @@ au BufRead,BufNewFile *.app.src setfiletype erlang
 au BufRead,BufNewFile *.app.src.script setfiletype erlang
 au BufRead,BufNewFile *.xrl setfiletype erlang
 au BufRead,BufNewFile *.yrl setfiletype erlang
+
+" Elixir file types
+au BufRead,BufNewFile *.ex setfiletype elixir
+au BufRead,BufNewFile *.exs setfiletype elixir
+
 map <C-n> :NERDTreeToggle<CR>
 
 
