@@ -1,11 +1,13 @@
 CASE_SENSITIVE="true"
 DISABLE_AUTO_TITLE=true
 
-autoload -Uz compinit promptinit colors
+autoload -Uz compinit promptinit colors select-word-style
 compinit -C
 zmodload -i zsh/complist
 promptinit
 colors
+# Alt + backspace for deleting up to a slash (for example)
+select-word-style bash
 
 ###########
 # Aliases #
